@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, Float
+from sqlalchemy import Column, Integer, String, DateTime, Float
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -10,7 +10,7 @@ class StockValue(Base):
     __tablename__ = "stock_value"
     id = Column(Integer, primary_key=True)
     symbol = Column(String)
-    date = Column(Date)
+    date = Column(DateTime)
     open = Column(Float)
     high = Column(Float)
     low = Column(Float)

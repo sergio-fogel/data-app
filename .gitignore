@@ -1,2 +1,3 @@
 logs/
 postgres-db-volume/
+__pycache__/
