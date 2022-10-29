@@ -18,3 +18,4 @@ class StockValue(Base):
     
     def __repr__(self):
         return f"<StockValue(symbol='{self.symbol}', date='{self.date}', open='{self.open}', high='{self.high}', low='{self.low}', close='{self.close}')>"
+
