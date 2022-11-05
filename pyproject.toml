@@ -3,7 +3,8 @@ name = "data-app"
 version = "0.0.1"
 description = ""
 authors = ["sergio-fogel <fogel.sergio@gmail.com>"]
-packages = [{include = "dags"}]
+readme = "README.md"
+packages = [{include = "data-app"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
