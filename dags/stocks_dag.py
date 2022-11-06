@@ -18,7 +18,7 @@ default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 10
 with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as dag:
     create_migration = BashOperator(
         task_id="create_migration",
-        bash_command='python -m alembic revision --autogenerate -m "Create stock value data model"',
+        bash_command='python -m alembic -c /tmp/models/alembic.ini revision --autogenerate -m "Create stock value data model"',
     )
     run_migration = BashOperator(
         task_id="run_migration",
