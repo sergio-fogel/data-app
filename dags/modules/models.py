@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class StockValue(Base):
+class StockValueModel(Base):
     """Stock value data model."""
 
     __tablename__ = "stock_value"
