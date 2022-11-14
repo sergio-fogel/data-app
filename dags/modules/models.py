@@ -15,6 +15,10 @@ class StockValueModel(Base):
     high = Column(Float)
     low = Column(Float)
     close = Column(Float)
+    adjusted_close = Column(Float)
+    volume = Column(Integer)
+    dividend_amount = Column(Float)
+    split_coefficient = Column(Float)
     
     def __repr__(self):
         return f"<StockValue(symbol='{self.symbol}', date='{self.date}', open='{self.open}', high='{self.high}', low='{self.low}', close='{self.close}')>"

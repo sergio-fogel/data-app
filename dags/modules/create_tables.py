@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, DateTime, Float
+from sqlalchemy import create_engine, MetaData
 from models import Base, StockValueModel
 
 
