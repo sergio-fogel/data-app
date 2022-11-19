@@ -1,4 +1,4 @@
 logs/
 postgres-db-volume/
 __pycache__/
-versions/
+raw_data/

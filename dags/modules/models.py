@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class StockValue(Base):
+class StockValueModel(Base):
     """Stock value data model."""
 
     __tablename__ = "stock_value"
@@ -15,6 +15,10 @@ class StockValue(Base):
     high = Column(Float)
     low = Column(Float)
     close = Column(Float)
+    adjusted_close = Column(Float)
+    volume = Column(Integer)
+    dividend_amount = Column(Float)
+    split_coefficient = Column(Float)
     
     def __repr__(self):
         return f"<StockValue(symbol='{self.symbol}', date='{self.date}', open='{self.open}', high='{self.high}', low='{self.low}', close='{self.close}')>"

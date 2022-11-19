@@ -3,14 +3,14 @@ name = "data-app"
 version = "0.0.1"
 description = ""
 authors = ["sergio-fogel <fogel.sergio@gmail.com>"]
-packages = [{include = "dags"}]
+readme = "README.md"
+packages = [{include = "data-app"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 pandas = "1.3.5"
 requests = "2.28.1"
 sqlalchemy = "1.4.27"
-alembic = "1.8.1"
 psycopg2 = "2.9.3"
 
 
