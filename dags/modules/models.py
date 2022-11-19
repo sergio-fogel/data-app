@@ -8,9 +8,9 @@ class StockValueModel(Base):
     """Stock value data model."""
 
     __tablename__ = "stock_value"
-    id = Column(Integer, primary_key=True)
-    symbol = Column(String)
-    date = Column(DateTime)
+    id = Column(Integer)
+    date = Column(DateTime, primary_key=True)
+    symbol = Column(String, primary_key=True)
     open = Column(Float)
     high = Column(Float)
     low = Column(Float)
