@@ -2,3 +2,4 @@ logs/
 postgres-db-volume/
 __pycache__/
 raw_data/
+reports/
