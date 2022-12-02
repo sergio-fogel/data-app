@@ -47,6 +47,7 @@ class PostgresClient:
 
 
 if __name__ == '__main__':
-    db = 'postgresql+psycopg2://airflow:airflow@postgres/stocks'
+    db = 'stocks'
     postgres_cli = PostgresClient(db)
     print(postgres_cli.to_frame('SELECT * FROM stock_value'))
+
