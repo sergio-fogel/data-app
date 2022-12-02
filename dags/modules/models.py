@@ -8,18 +8,14 @@ class StockValueModel(Base):
     """Stock value data model."""
 
     __tablename__ = "stock_value"
-    id = Column(Integer, primary_key=True)
-    symbol = Column(String)
-    date = Column(DateTime)
-    open = Column(Float)
-    high = Column(Float)
-    low = Column(Float)
-    close = Column(Float)
-    adjusted_close = Column(Float)
-    volume = Column(Integer)
-    dividend_amount = Column(Float)
-    split_coefficient = Column(Float)
+    Symbol = Column(String, primary_key=True)
+    Date = Column(DateTime, primary_key=True)
+    Open = Column(Float)
+    High = Column(Float)
+    Low = Column(Float)
+    Close = Column(Float)
+    Volume = Column(Integer)
     
     def __repr__(self):
-        return f"<StockValue(symbol='{self.symbol}', date='{self.date}', open='{self.open}', high='{self.high}', low='{self.low}', close='{self.close}')>"
+        return f"<StockValue(symbol='{self.Symbol}', date='{self.Date}', open='{self.Open}', high='{self.High}', low='{self.Low}', close='{self.Close}')>"
 
