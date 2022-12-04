@@ -28,23 +28,23 @@ def _get_stock_data(stock_symbol, date):
     df = (
         pd.DataFrame(data['Time Series (Daily)'])
         .T.reset_index()   #¿¿¿.T??? --> pasa fechas de columnas a filas | reset_index(): indice con valores duplicados
-        .rename(columns={'index': 'Date', '1. open': 'Open', '2. high': 'High', '3. low': 'Low', '4. close': 'Close', '6. volume': 'Volume'})
+        .rename(columns={'index': 'date', '1. open': 'open', '2. high': 'high', '3. low': 'low', '4. close': 'close', '6. volume': 'volume'})
     )
 
-    df = df[df['Date'] == date] #FILTRO: seleccionar sólo los registros correspondientes a la execution date
+    df = df[df['date'] == date] #FILTRO: seleccionar sólo los registros correspondientes a la execution date
 
     if not df.empty:
         for c in df.columns:
-            if c != 'Date':
+            if c != 'date':
                 df[c] = df[c].astype(float)
     else:
         df = pd.DataFrame(
-            [[date, np.nan, np.nan, np.nan, np.nan, np.nan]], columns=['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
+            [[date, np.nan, np.nan, np.nan, np.nan, np.nan]], columns=['date', 'open', 'high', 'low', 'close', 'volume']
         )
 
-    df['Symbol'] = stock_symbol
+    df['symbol'] = stock_symbol
 
-    df = df[['Symbol', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
+    df = df[['symbol', 'date', 'open', 'high', 'low', 'close', 'volume']]
 
     return df.to_json()
 

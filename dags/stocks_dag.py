@@ -23,7 +23,7 @@ def _load_daily_data(date, **context):
             task_instance.xcom_pull(task_ids=f'get_daily_data_{ticker}'),
             orient='index', #if the keys should be rows, pass ‘index’
             ).T #(.T) Transpose index and columns: Reflect the DataFrame over its main diagonal by writing rows as columns and vice-versa.
-        stock_df = stock_df[['Symbol', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
+        stock_df = stock_df[['symbol', 'date', 'open', 'high', 'low', 'close', 'volume']]
         dfs.append(stock_df)
 
     df_concat = pd.concat(dfs, axis=0)
@@ -34,7 +34,7 @@ def _load_daily_data(date, **context):
     df_concat.to_json(filepath)
 
 
-default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 11, 23)}
+default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 11, 30)}
 with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as dag:
 
     create_tables = BashOperator(
