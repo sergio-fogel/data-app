@@ -5,7 +5,7 @@ from airflow.operators.python import PythonOperator
 import pandas as pd
 from pathlib import Path
 
-from modules.extract import _get_stock_data
+from modules.extract import _extract_stock_data
 from modules.insert import _insert_daily_data
 from modules.reports import _stockv_weekly_report
 
@@ -47,7 +47,7 @@ with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as 
     for company, symbol in STOCKS.items():
         get_data_task[company] = PythonOperator(
             task_id=f'get_daily_data_{company}',
-            python_callable=_get_stock_data,
+            python_callable=_extract_stock_data,
             op_args=[symbol, EXEC_DATE],
         )
 
