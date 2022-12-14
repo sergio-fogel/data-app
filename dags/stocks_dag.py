@@ -5,7 +5,7 @@ from airflow.operators.python import PythonOperator
 import pandas as pd
 from pathlib import Path
 
-from modules.extract import _get_stock_data
+from modules.extract import _extract_stock_data
 from modules.insert import _insert_daily_data
 from modules.reports import _stockv_weekly_report
 
@@ -23,7 +23,7 @@ def _load_daily_data(date, **context):
             task_instance.xcom_pull(task_ids=f'get_daily_data_{ticker}'),
             orient='index', #if the keys should be rows, pass ‘index’
             ).T #(.T) Transpose index and columns: Reflect the DataFrame over its main diagonal by writing rows as columns and vice-versa.
-        stock_df = stock_df[['Symbol', 'Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
+        stock_df = stock_df[['symbol', 'date', 'open', 'high', 'low', 'close', 'volume']]
         dfs.append(stock_df)
 
     df_concat = pd.concat(dfs, axis=0)
@@ -34,7 +34,7 @@ def _load_daily_data(date, **context):
     df_concat.to_json(filepath)
 
 
-default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 11, 23)}
+default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 11, 30)}
 with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as dag:
 
     create_tables = BashOperator(
@@ -47,7 +47,7 @@ with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as 
     for company, symbol in STOCKS.items():
         get_data_task[company] = PythonOperator(
             task_id=f'get_daily_data_{company}',
-            python_callable=_get_stock_data,
+            python_callable=_extract_stock_data,
             op_args=[symbol, EXEC_DATE],
         )
 

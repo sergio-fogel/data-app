@@ -8,14 +8,14 @@ class StockValueModel(Base):
     """Stock value data model."""
 
     __tablename__ = "stock_value"
-    Symbol = Column(String, primary_key=True)
-    Date = Column(DateTime, primary_key=True)
-    Open = Column(Float)
-    High = Column(Float)
-    Low = Column(Float)
-    Close = Column(Float)
-    Volume = Column(Integer)
+    symbol = Column(String, primary_key=True)
+    date = Column(DateTime, primary_key=True)
+    open = Column(Float)
+    high = Column(Float)
+    low = Column(Float)
+    close = Column(Float)
+    volume = Column(Integer)
     
     def __repr__(self):
-        return f"<StockValue(symbol='{self.Symbol}', date='{self.Date}', open='{self.Open}', high='{self.High}', low='{self.Low}', close='{self.Close}')>"
+        return f"<StockValue(Symbol='{self.symbol}', Date='{self.date}', Open='{self.open}', High='{self.high}', Low='{self.low}', Close='{self.close}', Volume='{self.volume}')>"
 

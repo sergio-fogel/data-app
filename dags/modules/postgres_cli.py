@@ -1,5 +1,5 @@
-import pandas as pd
 from sqlalchemy import create_engine
+import pandas as pd
 
 
 class PostgresClient:
@@ -16,7 +16,7 @@ class PostgresClient:
 
     def _connect(self):
         return self._get_engine().connect()
-
+    
     @staticmethod
     def _cursor_columns(cursor):
         if hasattr(cursor, 'keys'):
