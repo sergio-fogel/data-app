@@ -1,0 +1,4 @@
+# requirements for GitHub Actions:
+requests
+requests_mock
+pandas
