@@ -11,6 +11,9 @@ import requests
 import requests_mock
 import pandas as pd
 
+import sys
+sys.path.insert(0, '/data-app')
+
 from dags.modules.transform import _transform_stock_data
 
 
