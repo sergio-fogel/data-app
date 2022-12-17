@@ -8,7 +8,7 @@ def main():
     # https://docs.sqlalchemy.org/en/14/orm/tutorial.html#create-a-schema
     
 
-    engine = create_engine('postgresql+psycopg2://airflow:airflow@postgres/stocks', pool_size=10, max_overflow=-1)
+    engine = create_engine('postgresql+psycopg2://airflow:airflow@postgres/stocks', pool_size=10, max_overflow=-1, pool_timeout=300)
 
     metadata = MetaData(engine)
 

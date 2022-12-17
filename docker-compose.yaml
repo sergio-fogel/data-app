@@ -59,6 +59,8 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- mplfinance}
+    AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 300
+    AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: 3
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

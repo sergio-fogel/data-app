@@ -34,7 +34,7 @@ def _load_daily_data(date, **context):
     df_concat.to_json(filepath)
 
 
-default_args = {"owner": "sergio", "retries": 0, "start_date": datetime(2022, 11, 30)}
+default_args = {"owner": "sergio", "retries": 3, "start_date": datetime(2022, 11, 30)}
 with DAG("stocks", default_args=default_args, schedule_interval="0 4 * * *") as dag:
 
     create_tables = BashOperator(
