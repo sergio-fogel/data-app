@@ -7,8 +7,8 @@
 #Y validar que todo el proceso del medio corra OK
 
 
-#import sys
-#sys.path.insert(0, '/data-app')
+import sys
+sys.path.insert(0, '/data-app')
 
 import requests
 import requests_mock
