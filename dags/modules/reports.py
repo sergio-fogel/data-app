@@ -50,7 +50,7 @@ def _stockv_weekly_report(symbol, date):
 #    'stock_value.Symbol' == f'{symbol}'
 #    ))
 
-    query = (f"SELECT * FROM stock_value WHERE stock_value.symbol = '{symbol}'")
+    query = (f"SELECT * FROM stock_value WHERE stock_value.symbol = '{symbol}' ORDER BY stock_value.date ASC")
 
     db = 'stocks'
     postgres_cli = PostgresClient(db)
